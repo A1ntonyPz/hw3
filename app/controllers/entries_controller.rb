@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
   end
 
   def new
+    #test
     @place = Place.find(params[:place_id])
     @entry = Entry.new
   end
