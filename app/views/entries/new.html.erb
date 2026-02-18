@@ -1,0 +1,28 @@
+<p>
+  <%= link_to "Back to #{@place.name}", place_path(@place) %>
+</p>
+
+<h1>New Entry for <%= @place.name %></h1>
+
+<%= form_with model: @entry, url: entries_path, local: true do |form| %>
+  <%= form.hidden_field :place_id, value: @place.id %>
+
+  <p>
+    <%= form.label :title, "Title" %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description, "Description" %><br>
+    <%= form.text_area :description, rows: 4 %>
+  </p>
+
+  <p>
+    <%= form.label :occurred_on, "Date" %><br>
+    <%= form.date_field :occurred_on %>
+  </p>
+
+  <p>
+    <%= form.submit "Create entry" %>
+  </p>
+<% end %>

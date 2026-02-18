@@ -1,0 +1,16 @@
+<p>
+  <%= link_to "Back to places", places_path %>
+</p>
+
+<h1>New Place</h1>
+
+<%= form_with model: @place, url: places_path, local: true do |form| %>
+  <p>
+    <%= form.label :name, "Name" %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit "Create place" %>
+  </p>
+<% end %>

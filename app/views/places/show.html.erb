@@ -1,0 +1,29 @@
+<p>
+  <%= link_to "Back to places", places_path %>
+</p>
+
+<h1><%= @place.name %></h1>
+
+<p>
+  <%= link_to "Add a new entry", new_entry_path(place_id: @place.id) %>
+</p>
+
+<h2>Entries</h2>
+
+<% if @entries.any? %>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li>
+        <strong><%= entry.title %></strong>
+        <% if entry.occurred_on.present? %>
+          (<%= entry.occurred_on.strftime("%b %-d, %Y") %>)
+        <% end %>
+        <% if entry.description.present? %>
+          - <%= entry.description %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No entries yet.</p>
+<% end %>
